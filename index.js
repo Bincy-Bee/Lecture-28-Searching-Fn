@@ -68,19 +68,45 @@ const handelcategory=(cat)=>{
 
 // Filter function by using for loop
 
-let poro = ["Men","Women","Kids"]
+const handlecat=(cat)=>{
+    // by Filter Method 
+    // let data = products.filter((item)=> item.cat == cat);
+    // display(data);
 
-for (let i = 0; i < poro.length; i++){
+    // by Map MEthod 
 
-    let btn = document.createElement("button");
-    btn.innerHTML= poro[i];
-    btn.setAttribute("id", poro[i]);
-    document.getElementById("btns").append(btn);
+    let temp = [];
+
+    // products.map((ele)=>{
+    //     if (ele.cat == cat){
+    //         temp.push(ele);
+    //     }
+    // })
+    // display(temp);
+
+    for( let i = 0; i < products.length; i++){
+        if (products[i].cat == cat){
+            temp.push(products[i]);
+        }
+    }
+    display(temp);
 }
-for (let i = 0; i < poro.length; i++){
-    document.getElementById(poro[i]).addEventListener("click",()=> handelcategory(poro[i]));
-};
 
+// let poro = ["Men","Women","Kids"]
+
+// for (let i = 0; i < poro.length; i++){
+
+//     let btn = document.createElement("button");
+//     btn.innerHTML= poro[i];
+//     btn.setAttribute("id", poro[i]);
+//     document.getElementById("btns").append(btn);
+// }
+// for (let i = 0; i < poro.length; i++){
+//     document.getElementById(poro[i]).addEventListener("click",()=> handelcategory(poro[i]));
+// };
+document.getElementById("men").addEventListener("click", ()=> handlecat("Men"));
+document.getElementById("women").addEventListener("click", ()=> handlecat("Women"));
+document.getElementById("kids").addEventListener("click", ()=> handlecat("Kids"));
 // Searcing Function 
 
 const search=()=>{
